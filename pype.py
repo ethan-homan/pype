@@ -1,0 +1,23 @@
+import sys
+import argparse
+import importlib
+
+
+def pype(source, variable_name, script, modules):
+    namespace = {module: importlib.import_module(module) for module in modules}
+    for line in source:
+        namespace[variable_name] = line.strip()
+        print(eval(script, namespace))
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("script", help="script to run on each line of input")
+    parser.add_argument("-m", "--module", help="module to import", action='append', default=[])
+    parser.add_argument("-n", "--variable-name", help="variable name of the line in the script", default='_')
+    args = parser.parse_args()
+    pype(sys.stdin, args.variable_name, args.script, args.module)
+
+
+if __name__ == "__main__":
+    main()
