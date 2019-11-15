@@ -1,12 +1,17 @@
 #!/usr/bin/env python
 
-import sys
+"""
+A small python script to allow you to run python one-liners on
+data as you pipe it around in your terminal.
+"""
+
 import argparse
-import importlib
+import sys
+from importlib import import_module
 
 
 def pype(source, variable_name, script, modules):
-    namespace = {module: importlib.import_module(module) for module in modules}
+    namespace = {module: import_module(module) for module in modules}
     for line in source:
         namespace[variable_name] = line.strip()
         print(eval(script, namespace))
