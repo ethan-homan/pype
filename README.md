@@ -1,4 +1,13 @@
 # Pype
+## Installing
+
+```bash
+git clone https://github.com/ethan-homan/pype.git
+cd pype
+pip install .
+```
+
+## Usage
 
 For when you forget the syntax for awk, grep, curl, sed etc. but have the perfect python
 one-liner for the job. Pype lets you run python on data as you pipe it around in your terminal.
