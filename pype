@@ -13,7 +13,7 @@ from importlib import import_module
 def pype(source, variable_name, script, modules):
     namespace = {module: import_module(module) for module in modules}
     for line in source:
-        namespace[variable_name] = line.strip()
+        namespace[variable_name] = line
         print(eval(script, namespace))
 
 
