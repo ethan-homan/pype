@@ -1,6 +1,5 @@
 # Pype
-For when you forget the syntax for awk, sed, curl etc. but have the perfect python
-one-liner for the job. Pype lets you run python on data as you pipe it around in your terminal.
+Pype lets you run python on data as you pipe it around in your terminal.
 
 ## Installing
 
