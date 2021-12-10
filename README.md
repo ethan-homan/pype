@@ -23,7 +23,15 @@ To get the last value in a comma separated list:
 5
 ```
 
-Import packages with the `-m` flag and change the name of the line variable with the `-n` flag.
+## Options
+If you need to import packages for your one-liner, just pass them using the `-m` option.
+
+We can use this to make GET requests on a list of URLs using `requests`, doing something similar to what could be done with `curl` and `jq`.
+```python
+cat links.txt | pype 'requests.get(_).json()["coord"]["lon"]' -m requests
+```
+
+If you want the variable that your input is called to be different than the default `_`, you can rename it using `-n` to make your one-liner easier to read.
 ```python
 cat links.txt | pype 'requests.get(link).json()["coord"]["lon"]' -m requests -n link
 ```
